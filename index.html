@@ -3,116 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سوق السهل | المتجر الإلكتروني</title>
+    <title>سوق السهل | متجر الأرقام الوهمية والافتراضية</title>
+    <!-- استدعاء أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Tahoma, Arial, sans-serif;
+        :root {
+            --primary-green: #2e7d32;
+            --dark-bg: #121212;
+            --gold-border: #ffd700;
+            --light-bg: #f4f6f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f4f6f5;
-            color: #333;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* الهيدر والعنوان */
         header {
-            background-color: #2e7d32;
+            background-color: var(--primary-green);
             color: white;
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        /* شريط الملاحة والقوائم الفرعية */
+        nav {
+            background-color: #1b5e20;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-container li {
+            position: relative;
+        }
+
+        .nav-container a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .nav-container a:hover {
+            background-color: #2e7d32;
+        }
+
+        /* القائمة الفرعية (Dropdown) */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #ffffff;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-radius: 0 0 6px 6px;
+            z-index: 100;
+            list-style: none;
+        }
+
+        .dropdown a {
+            color: #333333;
+            padding: 12px 16px;
+            font-weight: normal;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown a:hover {
+            background-color: #f5f5f5;
+            color: var(--primary-green);
+        }
+
+        .nav-container li:hover .dropdown {
+            display: block;
+        }
+
+        /* الحاوية الرئيسية */
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 6px;
+
+        .section-title {
             text-align: center;
-            margin-top: 15px;
+            margin-bottom: 25px;
+            color: #1b5e20;
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--primary-green);
+            padding-bottom: 8px;
+            display: inline-block;
         }
-        .price {
-            font-size: 1.2rem;
+
+        .section-wrapper {
+            text-align: center;
+        }
+
+        /* لستة الأرقام */
+        .numbers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .number-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .number-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .number-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .phone-number {
+            font-size: 1.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #2c3e50;
+            direction: ltr;
+        }
+
+        .status-badge {
+            background-color: #e8f5e9;
             color: #2e7d32;
-            margin: 10px 0;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
+
+        /* زر النسخ */
+        .btn-copy {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        /* صندوق الدفع عبر شام كاش */
         .payment-box {
-            margin-top: 25px;
-            padding: 15px;
             background-color: #e8f5e9;
             border: 1px solid #c8e6c9;
-            border-radius: 6px;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
             text-align: right;
         }
-        .payment-box h4 {
-            margin-top: 0;
+
+        .payment-box h3 {
             color: #1b5e20;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
         .wallet-code {
             display: inline-block;
-            background-color: #fff;
-            padding: 8px 12px;
+            background-color: #ffffff;
+            padding: 10px 15px;
             border: 1px dashed #2e7d32;
-            border-radius: 4px;
+            border-radius: 5px;
             font-family: monospace;
             font-weight: bold;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             word-break: break-all;
-            margin: 5px 0;
+            margin: 10px 0;
             color: #333;
+            direction: ltr;
         }
-        .btn {
-            background-color: #f57c00;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
+
+        /* زر التواصل مع البائع الأنيق */
+        .contact-btn-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--dark-bg);
+            color: #ffffff !important;
+            border: 2px solid var(--gold-border);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 1.1rem;
             font-weight: bold;
-            margin-top: 15px;
-            width: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
-        .btn:hover {
-            background-color: #e65100;
+
+        .btn-contact:hover {
+            background-color: #222222;
+            border-color: #ffe033;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-contact i {
+            color: #25d366; /* لون الواتساب */
+            font-size: 1.3rem;
+        }
+
+        /* الهامش السفلي */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .number-card {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .number-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .nav-container {
+                flex-direction: column;
+            }
+            .dropdown {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: #2e7d32;
+            }
+            .dropdown a {
+                color: white;
+                padding-right: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر -->
     <header>
         <h1>سوق السهل</h1>
-        <p>وجهتك الأولى للإكسسوارات العملية والحافظات المميزة</p>
+        <p>متجرك الموثوق لشراء الأرقام الوهمية والافتراضية لتفعيل كافة المواقع والتطبيقات</p>
     </header>
 
+    <!-- شريط القوائم والملاحة -->
+    <nav>
+        <ul class="nav-container">
+            <li><a href="#"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li>
+                <a href="#"><i class="fa-solid fa-list-check"></i> الأرقام حسب التطبيق <i class="fa-solid fa-caret-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i> أرقام واتساب</a></li>
+                    <li><a href="#"><i class="fa-brands fa-telegram"></i> أرقام تليجرام</a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i> أرقام إنستغرام</a></li>
+                    <li><a href="#"><i class="fa-solid fa-globe"></i> أرقام لمواقع أخرى</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa-solid fa-earth-americas"></i> الأرقام حسب الدولة <i class="fa-solid fa-caret-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="#">فنلندا (+358)</a></li>
+                    <li><a href="#">المملكة المتحدة (+44)</a></li>
+                    <li><a href="#">دول أخرى</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa-solid fa-wallet"></i> طرق الدفع</a></li>
+        </ul>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
     <div class="container">
-        <h2>منتج مميز</h2>
-        <div class="product-card">
-            <h3>حافظة هاتف "سوق السهل" العملية</h3>
-            <p>تجمع بين الأناقة الفائقة والحماية الكاملة. متوفرة بعدة ألوان ومقاسات لتناسب ذوقك وهاتفك بدقة.</p>
-            
-            <!-- التحديث: تغيير العملة إلى الليرة السورية -->
-            <div class="price">
-                <strong>السعر:</strong> 150,000 ل.س
-            </div>
-            <p><small>* رسوم الشحن: ثابتة لكل الطلبات داخل سوريا</small></p>
 
-            <!-- التحديث: إضافة تفاصيل الدفع عبر شام كاش -->
-            <div class="payment-box">
-                <h4>طريقة الدفع: شام كاش (Cham Cash)</h4>
-                <p>يرجى تحويل المبلغ المطلوب إلى رمز المحفظة التالي عبر تطبيق شام كاش:</p>
-                <div>
-                    <strong>رمز المحفظة:</strong><br>
-                    <span class="wallet-code">b85d3383c7e3f51c8b9602c6a2242d97</span>
-                </div>
-                <p><small>ملاحظة: يرجى الاحتفاظ برقم العملية أو إشعار التحويل لتأكيد الطلب.</small></p>
-            </div>
-
-            <button class="btn">تأكيد الطلب والشراء</button>
+        <!-- لستة الأرقام المتوفرة -->
+        <div class="section-wrapper">
+            <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> الأرقام المتوفرة حالياً للشراء</h2>
         </div>
+
+        <div class="numbers-list">
+            <!-- رقم 1 -->
+            <div class="number-card">
+                <div class="number-info">
+                    <span class="phone-number">+3584573988002</span>
+                    <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
+                </div>
+                <button class="btn-copy" onclick="copyNumber('+3584573988002', this)">
+                    <i class="fa-regular fa-copy"></i> نسخ الرقم
+                </button>
+            </div>
+
+            <!-- رقم 2 -->
+            <div class="number-card">
+                <div class="number-info">
+                    <span class="phone-number">+447576149862</span>
+                    <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
+                </div>
+                <button class="btn-copy" onclick="copyNumber('+447576149862', this)">
+                    <i class="fa-regular fa-copy"></i> نسخ الرقم
+                </button>
+            </div>
+
+            <!-- رقم 3 -->
+            <div class="number-card">
+                <div class="number-info">
+                    <span class="phone-number">+447576134547</span>
+                    <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
+                </div>
+                <button class="btn-copy" onclick="copyNumber('+447576134547', this)">
+                    <i class="fa-regular fa-copy"></i> نسخ الرقم
+                </button>
+            </div>
+        </div>
+
+        <!-- صندوق الدفع عبر شام كاش -->
+        <div class="payment-box">
+            <h3><i class="fa-solid fa-wallet"></i> الدفع عبر شام كاش (Cham Cash)</h3>
+            <p>يرجى إرسال قيمة الرقم بالليرة السورية إلى رمز المحفظة التالي في تطبيق شام كاش:</p>
+            <div>
+                <strong>رمز المحفظة:</strong><br>
+                <span class="wallet-code">b85d3383c7e3f51c8b9602c6a2242d97</span>
+            </div>
+            <p><small>* بعد إتمام عملية التحويل، يرجى التواصل مع البائع لتأكيد استلام الكود الخاص بالتفعيل.</small></p>
+        </div>
+
+        <!-- زر التواصل مع البائع الأنيق -->
+        <div class="contact-btn-wrapper">
+            <a href="https://wa.me/+963984595303" target="_blank" class="btn-contact">
+                <i class="fa-brands fa-whatsapp"></i> تواصل مع البائع
+            </a>
+        </div>
+
     </div>
 
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - سوق السهل لخدمات الأرقام الوهمية</p>
+    </footer>
+
+    <!-- السكربت لتفعيل عملية النسخ -->
+    <script>
+        function copyNumber(number, button) {
+            navigator.clipboard.writeText(number).then(() => {
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
+                button.style.backgroundColor = '#2e7d32';
+                button.style.color = '#ffffff';
+
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.style.backgroundColor = '#e0e0e0';
+                    button.style.color = '#333333';
+                }, 2000);
+            }).catch(err => {
+                alert('عذراً، تعذر نسخ الرقم تلقائياً.');
+            });
+        }
+    </script>
 </body>
 </html>
