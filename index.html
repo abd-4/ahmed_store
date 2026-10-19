@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀أحـمـد سـتـور || Ahmed Store🚀</title>
+    <title>🚀 أحمد ستور || Ahmed Store 🚀</title>
     <!-- استدعاء أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- استدعاء ملف التنسيق الخارجي -->
@@ -11,18 +11,25 @@
 </head>
 <body>
 
-    <!-- الهيدر والاسم المزخرف -->
+    <!-- الهيدر والاسم المزخرف مع مسافة صحيحة -->
     <header>
-        <h1>🚀 أحـمـد<span>سـتـور </span> 🚀</h1>
+        <h1>🚀 أحمد <span>ستور</span> 🚀</h1>
         <p>وجهتك الموثوقة لشراء الأرقام الوهمية والافتراضية لتفعيل كافة التطبيقات والمواقع</p>
     </header>
 
-    <!-- شريط القوائم والملاحة -->
+    <!-- شريط الملاحة مع زر القائمة الجانبية (ثلاث خطوط) -->
     <nav>
-        <ul class="nav-container">
+        <div class="nav-bar-mobile">
+            <button class="menu-toggle-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i> القائمة
+            </button>
+        </div>
+        <ul class="nav-container" id="navMenu">
             <li><a href="#"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
             <li>
-                <a href="#"><i class="fa-solid fa-list-check"></i> الأرقام حسب التطبيق <i class="fa-solid fa-caret-down"></i></a>
+                <a href="#" onclick="toggleDropdown(event)">
+                    <i class="fa-solid fa-list-check"></i> الأرقام حسب التطبيق <i class="fa-solid fa-caret-down"></i>
+                </a>
                 <ul class="dropdown">
                     <li><a href="#"><i class="fa-brands fa-whatsapp"></i> أرقام واتساب</a></li>
                     <li><a href="#"><i class="fa-brands fa-telegram"></i> أرقام تليجرام</a></li>
@@ -31,7 +38,9 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa-solid fa-earth-americas"></i> الأرقام حسب الدولة <i class="fa-solid fa-caret-down"></i></a>
+                <a href="#" onclick="toggleDropdown(event)">
+                    <i class="fa-solid fa-earth-americas"></i> الأرقام حسب الدولة <i class="fa-solid fa-caret-down"></i>
+                </a>
                 <ul class="dropdown">
                     <li><a href="#">فنلندا (+358)</a></li>
                     <li><a href="#">المملكة المتحدة (+44)</a></li>
@@ -136,11 +145,26 @@
 
     <!-- الفوتر -->
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 - أـحـمـد سـتـور لخدمات الأرقام الوهمية</p>
+        <p>جميع الحقوق محفوظة &copy; 2026 - أحمد ستور لخدمات الأرقام الوهمية</p>
     </footer>
 
-    <!-- السكربت البرمجي لنسخ الأرقام والرموز -->
+    <!-- السكربت البرمجي للنسخ والقوائم -->
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleDropdown(event) {
+            if (window.innerWidth <= 768) {
+                event.preventDefault();
+                const dropdown = event.currentTarget.nextElementSibling;
+                if (dropdown) {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                }
+            }
+        }
+
         function copyText(textToCopy, button, defaultText) {
             navigator.clipboard.writeText(textToCopy).then(() => {
                 const originalHTML = button.innerHTML;
