@@ -62,7 +62,7 @@ nav {
 
 .nav-bar-mobile {
     display: none;
-    padding: 10px 15px;
+    padding: 8px 15px;
     text-align: left; /* زر الثلاث خطوط في الزاوية اليسار */
 }
 
@@ -70,9 +70,9 @@ nav {
     background-color: #2e7d32;
     color: white;
     border: 1px solid #c8e6c9;
-    padding: 8px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     font-weight: bold;
     display: inline-flex;
@@ -421,13 +421,13 @@ footer {
         display: block;
     }
     .nav-container {
-        display: none;
+        display: none; /* مخفية افتراضياً ولن تظهر إلا عند الضغط على زر القائمة */
         flex-direction: column;
         width: 100%;
         background-color: #154d18;
     }
     .nav-container.active {
-        display: flex;
+        display: flex; /* تظهر فقط عند التفعيل */
     }
     .dropdown {
         position: static;
