@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سوق السهل | متجر الأرقام الوهمية والافتراضية</title>
+    <title>✨ أ حـمـد سـتـور | AHMED STORE ✨</title>
     <!-- استدعاء أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,12 +14,17 @@
             --light-bg: #f4f6f5;
             --card-bg: #ffffff;
             --text-color: #333333;
+            --price-blue: #0288d1;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -29,29 +34,39 @@
             line-height: 1.6;
         }
 
-        /* الهيدر والعنوان */
+        /* الهيدر والعنوان المزخرف */
         header {
-            background-color: var(--primary-green);
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
             color: white;
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 5px;
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+        }
+
+        header h1 span {
+            color: var(--gold-border);
         }
 
         header p {
-            font-size: 1.05rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            opacity: 0.95;
         }
 
         /* شريط الملاحة والقوائم الفرعية */
         nav {
-            background-color: #1b5e20;
+            background-color: #154d18;
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-container {
@@ -136,7 +151,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .number-card {
@@ -159,7 +174,8 @@
         .number-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .phone-number {
@@ -168,6 +184,20 @@
             font-weight: bold;
             color: #2c3e50;
             direction: ltr;
+        }
+
+        /* مربع السعر الأزرق */
+        .price-badge {
+            background-color: var(--price-blue);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 4px rgba(2, 136, 209, 0.3);
         }
 
         .status-badge {
@@ -200,44 +230,115 @@
             color: white;
         }
 
-        /* صندوق الدفع عبر شام كاش */
-        .payment-box {
-            background-color: #e8f5e9;
-            border: 1px solid #c8e6c9;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: right;
+        /* قسم الدفع المنسق المخصص */
+        .payment-section {
+            background: #ffffff;
+            border: 2px solid #c8e6c9;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 40px 0 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
-        .payment-box h3 {
+        .payment-section h3 {
             color: #1b5e20;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* حاوية صوة الـ QR والرمز */
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .qr-image {
+            width: 220px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid var(--primary-green);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .wallet-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 8px;
+            background-color: #f1f8e9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px dashed #2e7d32;
+            width: 100%;
+            max-width: 450px;
         }
 
         .wallet-code {
-            display: inline-block;
-            background-color: #ffffff;
-            padding: 10px 15px;
-            border: 1px dashed #2e7d32;
-            border-radius: 5px;
             font-family: monospace;
             font-weight: bold;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            color: #1b5e20;
             word-break: break-all;
-            margin: 10px 0;
-            color: #333;
             direction: ltr;
+        }
+
+        .btn-copy-wallet {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-copy-wallet:hover {
+            background-color: #1b5e20;
+        }
+
+        /* تعليمات الدفع */
+        .payment-instructions {
+            text-align: right;
+            background-color: #fffde7;
+            border-right: 4px solid #fbc02d;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .payment-instructions h4 {
+            color: #f57f17;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .payment-instructions ol {
+            padding-right: 20px;
+            line-height: 1.8;
         }
 
         /* زر التواصل مع البائع الأنيق */
         .contact-btn-wrapper {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .btn-contact {
@@ -266,7 +367,7 @@
         }
 
         .btn-contact i {
-            color: #25d366; /* لون الواتساب */
+            color: #25d366;
             font-size: 1.3rem;
         }
 
@@ -289,7 +390,7 @@
             }
             .number-info {
                 flex-direction: column;
-                gap: 5px;
+                gap: 8px;
             }
             .nav-container {
                 flex-direction: column;
@@ -309,10 +410,10 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
+    <!-- الهيدر والاسم المزخرف -->
     <header>
-        <h1>سوق السهل</h1>
-        <p>متجرك الموثوق لشراء الأرقام الوهمية والافتراضية لتفعيل كافة المواقع والتطبيقات</p>
+        <h1>✨ أ حـمـد <span>سـتـور</span> ✨</h1>
+        <p>وجهتك الموثوقة لشراء الأرقام الوهمية والافتراضية لتفعيل كافة التطبيقات والمواقع</p>
     </header>
 
     <!-- شريط القوائم والملاحة -->
@@ -336,7 +437,7 @@
                     <li><a href="#">دول أخرى</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa-solid fa-wallet"></i> طرق الدفع</a></li>
+            <li><a href="#payment-section"><i class="fa-solid fa-wallet"></i> طرق الدفع</a></li>
         </ul>
     </nav>
 
@@ -353,9 +454,11 @@
             <div class="number-card">
                 <div class="number-info">
                     <span class="phone-number">+3584573988002</span>
+                    <!-- مربع السعر الأزرق -->
+                    <span class="price-badge"><i class="fa-solid fa-tag"></i> 1$</span>
                     <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
                 </div>
-                <button class="btn-copy" onclick="copyNumber('+3584573988002', this)">
+                <button class="btn-copy" onclick="copyText('+3584573988002', this, 'نسخ الرقم')">
                     <i class="fa-regular fa-copy"></i> نسخ الرقم
                 </button>
             </div>
@@ -364,9 +467,11 @@
             <div class="number-card">
                 <div class="number-info">
                     <span class="phone-number">+447576149862</span>
+                    <!-- مربع السعر الأزرق -->
+                    <span class="price-badge"><i class="fa-solid fa-tag"></i> 1$</span>
                     <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
                 </div>
-                <button class="btn-copy" onclick="copyNumber('+447576149862', this)">
+                <button class="btn-copy" onclick="copyText('+447576149862', this, 'نسخ الرقم')">
                     <i class="fa-regular fa-copy"></i> نسخ الرقم
                 </button>
             </div>
@@ -375,26 +480,46 @@
             <div class="number-card">
                 <div class="number-info">
                     <span class="phone-number">+447576134547</span>
+                    <!-- مربع السعر الأزرق -->
+                    <span class="price-badge"><i class="fa-solid fa-tag"></i> 1$</span>
                     <span class="status-badge"><i class="fa-solid fa-circle-check"></i> متوفر</span>
                 </div>
-                <button class="btn-copy" onclick="copyNumber('+447576134547', this)">
+                <button class="btn-copy" onclick="copyText('+447576134547', this, 'نسخ الرقم')">
                     <i class="fa-regular fa-copy"></i> نسخ الرقم
                 </button>
             </div>
         </div>
 
-        <!-- صندوق الدفع عبر شام كاش -->
-        <div class="payment-box">
-            <h3><i class="fa-solid fa-wallet"></i> الدفع عبر شام كاش (Cham Cash)</h3>
-            <p>يرجى إرسال قيمة الرقم بالليرة السورية إلى رمز المحفظة التالي في تطبيق شام كاش:</p>
-            <div>
-                <strong>رمز المحفظة:</strong><br>
-                <span class="wallet-code">b85d3383c7e3f51c8b9602c6a2242d97</span>
+        <!-- قسم طرق الدفع (عزل شام كاش والـ QR) -->
+        <div id="payment-section" class="payment-section">
+            <h3><i class="fa-solid fa-qrcode"></i> طريقة الدفع عبر شام كاش (Cham Cash)</h3>
+
+            <div class="qr-container">
+                <!-- استيراد الصورة من مجلد photo -->
+                <img src="photo/qr.jpg" alt="رمز QR محفظة شام كاش" class="qr-image">
+
+                <div class="wallet-box">
+                    <span><strong>رمز المحفظة:</strong></span>
+                    <span class="wallet-code" id="wallet-id">b85d3383c7e3f51c8b9602c6a2242d97</span>
+                    <button class="btn-copy-wallet" onclick="copyText('b85d3383c7e3f51c8b9602c6a2242d97', this, 'نسخ رمز المحفظة')">
+                        <i class="fa-regular fa-copy"></i> نسخ رمز المحفظة
+                    </button>
+                </div>
             </div>
-            <p><small>* بعد إتمام عملية التحويل، يرجى التواصل مع البائع لتأكيد استلام الكود الخاص بالتفعيل.</small></p>
+
+            <!-- تعليمات وإرشادات الدفع -->
+            <div class="payment-instructions">
+                <h4><i class="fa-solid fa-circle-info"></i> تعليمات الدفع وإتمام الطلب:</h4>
+                <ol>
+                    <li>قم بفتح تطبيق <strong>شام كاش (Cham Cash)</strong> على هاتفك.</li>
+                    <li>قم بمسح رمز الـ <strong>QR Code</strong> أعلاه أو نسخ <strong>رمز المحفظة</strong> لتحويل قيمة الرقم.</li>
+                    <li>بعد إتمام عملية الدفع بنجاح، قم بتصدير أو <strong>استخراج إيصال الدفع</strong> من التطبيق.</li>
+                    <li>اضغط على زر <strong>"تواصل مع البائع"</strong> بالأسفل وإرسال صورة الإيصال للتحقق وإرسال كود التفعيل لك مباشرة.</li>
+                </ol>
+            </div>
         </div>
 
-        <!-- زر التواصل مع البائع الأنيق -->
+        <!-- زر التواصل مع البائع -->
         <div class="contact-btn-wrapper">
             <a href="https://wa.me/+963984595303" target="_blank" class="btn-contact">
                 <i class="fa-brands fa-whatsapp"></i> تواصل مع البائع
@@ -405,13 +530,13 @@
 
     <!-- الفوتر -->
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 - سوق السهل لخدمات الأرقام الوهمية</p>
+        <p>جميع الحقوق محفوظة &copy; 2026 - أـحـمـد سـتـور لخدمات الأرقام الوهمية</p>
     </footer>
 
-    <!-- السكربت لتفعيل عملية النسخ -->
+    <!-- السكربت البرمجي لنسخ الأرقام والرموز -->
     <script>
-        function copyNumber(number, button) {
-            navigator.clipboard.writeText(number).then(() => {
+        function copyText(textToCopy, button, defaultText) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
                 const originalHTML = button.innerHTML;
                 button.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
                 button.style.backgroundColor = '#2e7d32';
@@ -419,11 +544,11 @@
 
                 setTimeout(() => {
                     button.innerHTML = originalHTML;
-                    button.style.backgroundColor = '#e0e0e0';
-                    button.style.color = '#333333';
+                    button.style.backgroundColor = '';
+                    button.style.color = '';
                 }, 2000);
             }).catch(err => {
-                alert('عذراً، تعذر نسخ الرقم تلقائياً.');
+                alert('حدث خطأ أثناء النسخ التلقائي، يرجى النسخ يدوياً.');
             });
         }
     </script>
