@@ -51,13 +51,33 @@ header p {
     opacity: 0.95;
 }
 
-/* شريط الملاحة والقوائم الفرعية */
+/* شريط الملاحة الثابت والقوائم */
 nav {
     background-color: #154d18;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.nav-bar-mobile {
+    display: none;
+    padding: 10px 15px;
+    text-align: left; /* زر الثلاث خطوط في الزاوية اليسار */
+}
+
+.menu-toggle-btn {
+    background-color: #2e7d32;
+    color: white;
+    border: 1px solid #c8e6c9;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-container {
@@ -395,8 +415,26 @@ footer {
     margin-top: 40px;
 }
 
-/* التجاوب مع الشاشات الصغيرة */
-@media (max-width: 600px) {
+/* التجاوب مع الشاشات الصغيرة (الجوال والأجهزة اللوحية) */
+@media (max-width: 768px) {
+    .nav-bar-mobile {
+        display: block;
+    }
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #154d18;
+    }
+    .nav-container.active {
+        display: flex;
+    }
+    .dropdown {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: #1b5e20;
+    }
     .number-card {
         flex-direction: column;
         gap: 12px;
@@ -405,18 +443,5 @@ footer {
     .number-info {
         flex-direction: column;
         gap: 8px;
-    }
-    .nav-container {
-        flex-direction: column;
-    }
-    .dropdown {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        background-color: #2e7d32;
-    }
-    .dropdown a {
-        color: white;
-        padding-right: 30px;
     }
 }
