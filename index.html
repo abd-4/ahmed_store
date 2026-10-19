@@ -25,16 +25,16 @@
             </button>
         </div>
         <ul class="nav-container" id="navMenu">
-            <li><a href="#"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a href="#" onclick="closeMenu()"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
             <li>
                 <a href="#" onclick="toggleDropdown(event)">
                     <i class="fa-solid fa-list-check"></i> الأرقام حسب التطبيق <i class="fa-solid fa-caret-down"></i>
                 </a>
                 <ul class="dropdown">
-                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i> أرقام واتساب</a></li>
-                    <li><a href="#"><i class="fa-brands fa-telegram"></i> أرقام تليجرام</a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> أرقام إنستغرام</a></li>
-                    <li><a href="#"><i class="fa-solid fa-globe"></i> أرقام لمواقع أخرى</a></li>
+                    <li><a href="#" onclick="closeMenu()"><i class="fa-brands fa-whatsapp"></i> أرقام واتساب</a></li>
+                    <li><a href="#" onclick="closeMenu()"><i class="fa-brands fa-telegram"></i> أرقام تليجرام</a></li>
+                    <li><a href="#" onclick="closeMenu()"><i class="fa-brands fa-instagram"></i> أرقام إنستغرام</a></li>
+                    <li><a href="#" onclick="closeMenu()"><i class="fa-solid fa-globe"></i> أرقام لمواقع أخرى</a></li>
                 </ul>
             </li>
             <li>
@@ -42,12 +42,12 @@
                     <i class="fa-solid fa-earth-americas"></i> الأرقام حسب الدولة <i class="fa-solid fa-caret-down"></i>
                 </a>
                 <ul class="dropdown">
-                    <li><a href="#">فنلندا (+358)</a></li>
-                    <li><a href="#">المملكة المتحدة (+44)</a></li>
-                    <li><a href="#">دول أخرى</a></li>
+                    <li><a href="#" onclick="closeMenu()">فنلندا (+358)</a></li>
+                    <li><a href="#" onclick="closeMenu()">المملكة المتحدة (+44)</a></li>
+                    <li><a href="#" onclick="closeMenu()">دول أخرى</a></li>
                 </ul>
             </li>
-            <li><a href="#payment-section"><i class="fa-solid fa-wallet"></i> طرق الدفع</a></li>
+            <li><a href="#payment-section" onclick="closeMenu()"><i class="fa-solid fa-wallet"></i> طرق الدفع</a></li>
         </ul>
     </nav>
 
@@ -153,6 +153,13 @@
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            if (window.innerWidth <= 768) {
+                const menu = document.getElementById('navMenu');
+                menu.classList.remove('active');
+            }
         }
 
         function toggleDropdown(event) {
