@@ -251,7 +251,7 @@
             gap: 10px;
         }
 
-        /* حاوية صوة الـ QR والرمز */
+        /* حاوية صورة الـ QR والرمز */
         .qr-container {
             display: flex;
             flex-direction: column;
@@ -269,6 +269,28 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
+        /* زر تحميل الصورة */
+        .btn-download-qr {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download-qr:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
         .wallet-box {
             display: flex;
             flex-direction: column;
@@ -280,6 +302,7 @@
             border: 1px dashed #2e7d32;
             width: 100%;
             max-width: 450px;
+            margin-top: 5px;
         }
 
         .wallet-code {
@@ -412,7 +435,7 @@
 
     <!-- الهيدر والاسم المزخرف -->
     <header>
-        <h1>✨ أ حـمـد <span>سـتـور</span> ✨</h1>
+        <h1>🚀 أحـمـد<span>سـتـور</span> 🚀</h1>
         <p>وجهتك الموثوقة لشراء الأرقام الوهمية والافتراضية لتفعيل كافة التطبيقات والمواقع</p>
     </header>
 
@@ -497,6 +520,11 @@
             <div class="qr-container">
                 <!-- استيراد الصورة من مجلد photo -->
                 <img src="photo/IMG-20261019-WA0000.jpg" alt="رمز QR محفظة شام كاش" class="qr-image">
+
+                <!-- زر تحميل صورة رمز الـ QR مباشرة -->
+                <a href="photo/IMG-20261019-WA0000.jpg" download="ShamCash_QRCode.jpg" class="btn-download-qr">
+                    <i class="fa-solid fa-download"></i> تحميل صورة رمز الـ QR
+                </a>
 
                 <div class="wallet-box">
                     <span><strong>رمز المحفظة:</strong></span>
